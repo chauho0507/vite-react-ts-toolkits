@@ -19,3 +19,7 @@ export const COOKIE_KEYS = {
 export const STORAGE_KEYS = {
   AUTH_TOKEN: "auth_token",
 }
+
+export const GLOBAL_CONFIGS = {
+  DEFAULT_LANGUAGE: "ja",
+}

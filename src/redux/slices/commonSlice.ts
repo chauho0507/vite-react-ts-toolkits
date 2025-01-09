@@ -5,6 +5,8 @@ import { ICommonStore, ILogoutPayload } from "@interfaces/common"
 const initialState: ICommonStore = {
   isExpanded: false,
   isAuthenticated: false,
+  isLoadingPage: false,
+  apiCount: 0,
 }
 
 const commonStore = createSlice({
@@ -20,6 +22,14 @@ const commonStore = createSlice({
     ) {
       state.isAuthenticated = isAuthenticated
       cb?.()
+    },
+    setLoadingPage(state, { payload }: PayloadAction<boolean>): void {
+      if (payload) {
+        state.apiCount += 1
+      } else {
+        state.apiCount -= 1
+      }
+      state.isLoadingPage = state.apiCount > 0
     },
   },
 })

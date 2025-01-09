@@ -3,6 +3,8 @@ import { PayloadAction } from "@reduxjs/toolkit"
 export interface ICommonStore {
   isExpanded: boolean
   isAuthenticated: boolean
+  isLoadingPage: boolean
+  apiCount: number
 }
 
 export interface IAction<T> extends PayloadAction<T> {

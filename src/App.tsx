@@ -1,4 +1,5 @@
 import "./App.css"
+import "./i18next"
 import { privateRoutes } from "@routes/private"
 import { publicRoutes } from "@routes/public"
 import { useRoutes } from "react-router-dom"

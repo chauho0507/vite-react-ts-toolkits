@@ -1,3 +1,6 @@
+import { STORAGE_KEYS } from "@constants/common"
+// import { cookiesStorage } from "@utils/cookie"
+import { getLocalStorage } from "@utils/helper"
 import axios, {
   AxiosResponse,
   AxiosRequestConfig,
@@ -7,7 +10,7 @@ import axios, {
 import { decamelizeKeys } from "humps"
 import { mergeWith } from "lodash"
 
-const urlTokenExcludes = ["security/login"]
+const urlTokenExcludes = ["auth/login"]
 
 const defaultHeaders = {
   ...axios.defaults.headers,
@@ -17,7 +20,7 @@ const defaultHeaders = {
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.REACT_APP_API_URL,
-  withCredentials: false,
+  withCredentials: true,
   headers: defaultHeaders,
 })
 
@@ -27,7 +30,7 @@ const onRequest = (config: AxiosRequestConfig): InternalAxiosRequestConfig => {
     newConfig.headers = mergeWith(
       {
         ...defaultHeaders,
-        // Authorization: `Bearer ${CookiesStorage.getAccessToken()}`,
+        Authorization: `Bearer ${getLocalStorage(STORAGE_KEYS.AUTH_TOKEN)}`,
       },
       newConfig.headers,
     )
@@ -57,6 +60,7 @@ const onResponseError = (error: AxiosError): Promise<AxiosError> =>
 
 axiosInstance.interceptors.request.use(onRequest, onRequestError)
 axiosInstance.interceptors.response.use(onResponse, onResponseError)
+
 const requester = {
   get: (url: string, params?: unknown, config?: AxiosRequestConfig) =>
     axiosInstance.get<AxiosResponse>(url, {

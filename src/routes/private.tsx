@@ -1,10 +1,16 @@
 import { ALL_ROUTES } from "@constants/common"
-import { RouteProps } from "react-router-dom"
-import DashboardPage from "@pages/Dashboard"
+import PrivateLayout from "@layout/PrivateLayout"
+import DashboardPage from "@pages/private/Dashboard"
 
-export const privateRoutes: RouteProps[] = [
+export const privateRoutes = [
   {
-    path: ALL_ROUTES.PRIVATE.DASHBOARD,
-    element: <DashboardPage />,
+    path: "/",
+    element: <PrivateLayout />,
+    children: [
+      {
+        path: ALL_ROUTES.PRIVATE.DASHBOARD,
+        element: <DashboardPage />,
+      },
+    ],
   },
 ]

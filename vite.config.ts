@@ -34,6 +34,10 @@ export default defineConfig(({ command, mode }) => {
         "@redux": path.resolve(__dirname, "./src/redux"),
         "@hooks": path.resolve(__dirname, "./src/hooks"),
         "@utils": path.resolve(__dirname, "./src/utils"),
+        "@layout": path.resolve(__dirname, "./src/layout"),
+        "@routes": path.resolve(__dirname, "./src/routes"),
+        "@pages": path.resolve(__dirname, "./src/pages"),
+        "@api": path.resolve(__dirname, "./src/api"),
       },
     },
   }

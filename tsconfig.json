@@ -33,6 +33,9 @@
       "@redux/*": ["src/redux/*"],
       "@hooks/*": ["src/hooks/*"],
       "@utils/*": ["src/utils/*"],
+      "@layout/*": ["src/layout/*"],
+      "@routes/*": ["src/routes/*"],
+      "@api/*": ["src/api/*"],
     }
   },
   "include": ["src/**/*.ts*"],

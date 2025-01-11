@@ -9,11 +9,17 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [react()],
     server: {
-      open: true,
+      // open: true,
+      // host: "isi-dev.test",
+      // port: 3000,
+      // proxy: PROXY
     },
+    envPrefix: "REACT_APP_",
     build: {
       outDir: "build",
-      sourcemap: true,
+      sourcemap: mode === "development",
+      minify: mode === "production",
+      chunkSizeWarningLimit: 500,
     },
     test: {
       globals: true,
@@ -22,7 +28,7 @@ export default defineConfig(({ command, mode }) => {
       mockReset: true,
     },
     define: {
-      __APP_ENV__: JSON.stringify(env.APP_ENV),
+      __APP_ENV__: JSON.stringify(env.NODE_ENV),
     },
     resolve: {
       alias: {
@@ -38,6 +44,14 @@ export default defineConfig(({ command, mode }) => {
         "@routes": path.resolve(__dirname, "./src/routes"),
         "@pages": path.resolve(__dirname, "./src/pages"),
         "@api": path.resolve(__dirname, "./src/api"),
+        "@enums": path.resolve(__dirname, "./src/enums"),
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        less: {
+          javascriptEnabled: true,
+        },
       },
     },
   }

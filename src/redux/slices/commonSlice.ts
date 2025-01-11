@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
-
 import { ICommonStore, ILogoutPayload } from "@interfaces/common"
+import { ESystemLanguages } from "@enums/common"
 
 const initialState: ICommonStore = {
   isExpanded: false,
   isAuthenticated: false,
   isLoadingPage: false,
   apiCount: 0,
+  language: ESystemLanguages.EN,
 }
 
 const commonStore = createSlice({
@@ -31,9 +32,20 @@ const commonStore = createSlice({
       }
       state.isLoadingPage = state.apiCount > 0
     },
+    changeSystemLanguage(
+      state,
+      { payload }: PayloadAction<ESystemLanguages>,
+    ): void {
+      state.language = payload
+    },
   },
 })
 
-export const { toggleExpand, toggleAuthenticated } = commonStore.actions
+export const {
+  toggleExpand,
+  toggleAuthenticated,
+  changeSystemLanguage,
+  setLoadingPage,
+} = commonStore.actions
 
 export default commonStore.reducer

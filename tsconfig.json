@@ -36,6 +36,7 @@
       "@layout/*": ["src/layout/*"],
       "@routes/*": ["src/routes/*"],
       "@api/*": ["src/api/*"],
+      "@enums/*": ["src/enums/*"]
     }
   },
   "include": ["src/**/*.ts*"],

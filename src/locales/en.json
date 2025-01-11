@@ -1,6 +1,9 @@
 {
   "home_page": {
-    "main_title": "Home page",
-    "title": "Welcome {{name}}, to react using react-i18next fully type-safe"
+    "demo": {
+      "main_title": "Home page",
+      "title": "Welcome {{name}} to Vite React TypeScript project, built by ChauHH",
+      "loading_icon_desc": "This is common loading icon"
+    }
   }
 }

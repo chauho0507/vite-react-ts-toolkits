@@ -1,6 +1,9 @@
 {
   "home_page": {
-    "main_title": "ホームページ",
-    "title": "{{name}}さん、完全に型安全な react-i18next を使用して反応しましょう"
+    "demo": {
+      "main_title": "ホームページ",
+      "title": "ChauHH が構築した Vite React TypeScript プロジェクトに {{name}} を歓迎します。",
+      "loading_icon_desc": "これは一般的な読み込みアイコンです"
+    }
   }
 }

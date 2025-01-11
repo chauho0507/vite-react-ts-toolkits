@@ -1,8 +1,6 @@
 import React from "react"
 import CircularProgress from "@mui/material/CircularProgress"
 
-const LoadingIcon: React.FC = () => {
-  return <CircularProgress size="3rem" />
-}
+const CommonLoadingIcon: React.FC = () => <CircularProgress size="3rem" />
 
-export default LoadingIcon
+export default CommonLoadingIcon
